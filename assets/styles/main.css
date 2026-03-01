@@ -159,7 +159,7 @@ ul li, ol li {
 
     background: var(--accent-color);
     /* backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px); */
+    backdrop-filter: blur(12px); */
 
 
     transition: 
@@ -186,7 +186,7 @@ ul li, ol li {
 
 .logo-link{
     display: flex;
-    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
     text-decoration: none;
 }
 .logo-link:hover {
@@ -243,13 +243,13 @@ ul li, ol li {
   background: rgba(100,100,200,0);
   bottom: 0;
   position: absolute;
-  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
 }
 
 .menu-links li {
   float: left;
   padding: 0 19px;
-  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
   font-size: 20px;
     letter-spacing: 0rem;
 
@@ -417,13 +417,13 @@ h1.main-title {
 
 .gallery-item {
     margin-bottom: 34px;
-    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
 }
 
 .gallery-item img {
     width: 100%;
     align-self: center;
-  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
 }
 
 .gallery-row:nth-child(odd) .gallery-item:first-child,
@@ -597,7 +597,7 @@ body#cookie, body#cookie .header {
     /* bottom: 40px; */
     display: flex;
     bottom: -400px;
-    -webkit-transition: 1.5s ease;
+    transition: 1.5s ease;
 
     position: fixed;
     flex-wrap: wrap;
@@ -781,7 +781,7 @@ body#cookie, body#cookie .header {
 
 @font-face {
     font-family: "Commissioner"; 
-    src: url("./fonts/Commissioner.ttf") format("truetype"); 
+    src: url("fonts/Commissioner.ttf") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
 }
