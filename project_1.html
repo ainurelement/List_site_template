@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/styles/normalize.css">
     <link rel="stylesheet" href="assets/components/slider/itc-slider.css">
     <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="assets/components/baguetteBox/dist/baguetteBox.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -81,7 +82,9 @@
 
                 <!-- Hero-IMG -->
                 <div class="hero-img">
-                    <img src="assets/img/projects/HERO_IMG.png" alt="">
+                    <a href="assets/img/projects/HERO_IMG.png" data-caption="Книга для детей «Сквозь лёд»">
+                        <img src="assets/img/projects/HERO_IMG.png" alt="">
+                    </a>
                 </div>
 
                 <!-- Описание -->
@@ -96,28 +99,40 @@
                 <div class="p-gallery">
                     <div class="p-gallery-row-1">
                         <div class="p-gallery-item">
-                            <img src="assets/img/projects/p_gal_1.png" alt="">
+                            <a href="assets/img/projects/p_gal_1.png" data-caption="Книга для детей «Сквозь лёд»">
+                                <img src="assets/img/projects/p_gal_1.png" alt="">
+                            </a>
                         </div>
                     </div>
                     <div class="p-gallery-row-2">
                         <div class="p-gallery-item">
-                            <img src="assets/img/projects/p_gal_2.png" alt="">
+                            <a href="assets/img/projects/p_gal_2.png" data-caption="Книга для детей «Сквозь лёд»">
+                                <img src="assets/img/projects/p_gal_2.png" alt="">
+                            </a>
                         </div>
                         <div class="p-gallery-item">
-                            <img src="assets/img/projects/p_gal_3.png" alt="">
+                            <a href="assets/img/projects/p_gal_3.png" data-caption="Книга для детей «Сквозь лёд»">
+                                <img src="assets/img/projects/p_gal_3.png" alt="">
+                            </a>
                         </div>
                     </div>
                     <div class="p-gallery-row-1">
                         <div class="p-gallery-item">
-                            <img src="assets/img/projects/p_gal_4.png" alt="">
+                            <a href="assets/img/projects/p_gal_4.png" data-caption="Книга для детей «Сквозь лёд»">
+                                <img src="assets/img/projects/p_gal_4.png" alt="">
+                            </a>
                         </div>
                     </div>
                     <div class="p-gallery-row-2">
                         <div class="p-gallery-item">
-                            <img src="assets/img/projects/p_gal_5.png" alt="">
+                            <a href="assets/img/projects/p_gal_5.png" data-caption="Книга для детей «Сквозь лёд»">
+                                <img src="assets/img/projects/p_gal_5.png" alt="">
+                            </a>
                         </div>
                         <div class="p-gallery-item">
-                            <img src="assets/img/projects/p_gal_5.png" alt="">
+                            <a href="assets/img/projects/p_gal_6.png" data-caption="Книга для детей «Сквозь лёд»">
+                                <img src="assets/img/projects/p_gal_6.png" alt="">  
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -246,6 +261,10 @@
     <!-- Подключение JavaScript -->
     <script src="assets/components/slider/itc-slider.js" defer></script>
     <script src="assets/scripts/scripts.js"></script>
+    <script src="assets/components/baguetteBox/dist/baguetteBox.min.js"></script>
+    <script>
+        baguetteBox.run('.project');
+    </script>
 
 
 </body>
