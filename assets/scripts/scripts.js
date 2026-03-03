@@ -1,66 +1,6 @@
 
 
-// Скелетон
 
-(function () {
-
-  const blocks = document.querySelectorAll('[data-sm="mammoth"]');
-
-  blocks.forEach(block => {
-
-    // включаем скелетон
-    block.classList.add('sm-loading');
-
-    const mediaElements = block.querySelectorAll('img, video, iframe');
-
-    if (!mediaElements.length) {
-      block.classList.remove('sm-loading');
-      return;
-    }
-
-    let loadedCount = 0;
-    const total = mediaElements.length;
-
-    const checkAllLoaded = () => {
-      loadedCount++;
-      if (loadedCount >= total) {
-        block.classList.remove('sm-loading');
-      }
-    };
-
-    mediaElements.forEach(el => {
-
-      // IMG
-      if (el.tagName === 'IMG') {
-        if (el.complete && el.naturalHeight !== 0) {
-          checkAllLoaded();
-        } else {
-          el.addEventListener('load', checkAllLoaded, { once: true });
-          el.addEventListener('error', checkAllLoaded, { once: true });
-        }
-      }
-
-      // VIDEO
-      else if (el.tagName === 'VIDEO') {
-        if (el.readyState >= 3) {
-          checkAllLoaded();
-        } else {
-          el.addEventListener('loadeddata', checkAllLoaded, { once: true });
-          el.addEventListener('error', checkAllLoaded, { once: true });
-        }
-      }
-
-      // IFRAME
-      else if (el.tagName === 'IFRAME') {
-        el.addEventListener('load', checkAllLoaded, { once: true });
-        el.addEventListener('error', checkAllLoaded, { once: true });
-      }
-
-    });
-
-  });
-
-})();
 
 // Header
 document.addEventListener("DOMContentLoaded", function () {

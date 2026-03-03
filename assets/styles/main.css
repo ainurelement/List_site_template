@@ -917,8 +917,7 @@ body#cookie, body#cookie .header {
         padding: 0 20px;
 
     .page-title {
-        margin: 0 auto;
-        text-align: center;
+        margin-left: 13px
     }
     }
 
@@ -1075,12 +1074,16 @@ body#cookie, body#cookie .header {
     .container, .container-text {
         padding: 0 15px;
     }
-
+    h1 {
+        font-size: 36px;
+    }
     h2 {
+        font-size: 28px;
         margin-bottom: 21px;
     }
     
     h3 {
+        font-size: 20px;
         letter-spacing: 0rem;
     }
     
@@ -1285,6 +1288,9 @@ body#cookie, body#cookie .header {
     .p-description {
         margin-left: 0;
         margin-right: 0;
+    }
+    .tag-project {
+        font-size: 10px;
     }
 }
 
