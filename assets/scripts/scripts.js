@@ -2,17 +2,19 @@
 
 // Скелетон
 
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
 
-  const cards = document.querySelectorAll('.sm-loading');
+  const blocks = document.querySelectorAll('[data-sm="mammoth"]');
 
-  cards.forEach(card => {
+  blocks.forEach(block => {
 
-    const mediaElements = card.querySelectorAll('img, video, iframe');
+    // включаем скелетон
+    block.classList.add('sm-loading');
+
+    const mediaElements = block.querySelectorAll('img, video, iframe');
 
     if (!mediaElements.length) {
-      // Если нет медиа — убираем сразу
-      card.classList.remove('sm-loading');
+      block.classList.remove('sm-loading');
       return;
     }
 
@@ -22,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkAllLoaded = () => {
       loadedCount++;
       if (loadedCount >= total) {
-        card.classList.remove('sm-loading');
+        block.classList.remove('sm-loading');
       }
     };
 
@@ -33,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (el.complete && el.naturalHeight !== 0) {
           checkAllLoaded();
         } else {
-          el.addEventListener('load', checkAllLoaded);
-          el.addEventListener('error', checkAllLoaded);
+          el.addEventListener('load', checkAllLoaded, { once: true });
+          el.addEventListener('error', checkAllLoaded, { once: true });
         }
       }
 
@@ -43,22 +45,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (el.readyState >= 3) {
           checkAllLoaded();
         } else {
-          el.addEventListener('loadeddata', checkAllLoaded);
-          el.addEventListener('error', checkAllLoaded);
+          el.addEventListener('loadeddata', checkAllLoaded, { once: true });
+          el.addEventListener('error', checkAllLoaded, { once: true });
         }
       }
 
       // IFRAME
       else if (el.tagName === 'IFRAME') {
-        el.addEventListener('load', checkAllLoaded);
-        el.addEventListener('error', checkAllLoaded);
+        el.addEventListener('load', checkAllLoaded, { once: true });
+        el.addEventListener('error', checkAllLoaded, { once: true });
       }
 
     });
 
   });
 
-});
+})();
 
 // Header
 document.addEventListener("DOMContentLoaded", function () {
