@@ -1,49 +1,75 @@
+
+
+// Скелетон
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Применяем анимацию входа для новой страницы
-  const pageContent = document.querySelector('.page-content');
-  if (pageContent) {
-    pageContent.classList.add('new-page-enter');
-  }
 
-  // Обрабатываем все ссылки для перехода с анимацией выхода
-  const links = document.querySelectorAll('a.link');
+  const cards = document.querySelectorAll('.sm-loading');
 
-  links.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const href = link.getAttribute('href');
+  cards.forEach(card => {
 
-      if (pageContent) {
-        // Добавляем анимацию выхода
-        pageContent.classList.remove('new-page-enter');
-        pageContent.classList.add('current-page-exit');
+    const mediaElements = card.querySelectorAll('img, video, iframe');
 
-        // Получаем длительность анимации выхода из CSS (400мс)
-        const animationDuration = 400;
+    if (!mediaElements.length) {
+      // Если нет медиа — убираем сразу
+      card.classList.remove('sm-loading');
+      return;
+    }
 
-        setTimeout(() => {
-          window.location.href = href;
-        }, animationDuration);
-      } else {
-        // Если .page-content не найден, просто переходим
-        window.location.href = href;
+    let loadedCount = 0;
+    const total = mediaElements.length;
+
+    const checkAllLoaded = () => {
+      loadedCount++;
+      if (loadedCount >= total) {
+        card.classList.remove('sm-loading');
       }
+    };
+
+    mediaElements.forEach(el => {
+
+      // IMG
+      if (el.tagName === 'IMG') {
+        if (el.complete && el.naturalHeight !== 0) {
+          checkAllLoaded();
+        } else {
+          el.addEventListener('load', checkAllLoaded);
+          el.addEventListener('error', checkAllLoaded);
+        }
+      }
+
+      // VIDEO
+      else if (el.tagName === 'VIDEO') {
+        if (el.readyState >= 3) {
+          checkAllLoaded();
+        } else {
+          el.addEventListener('loadeddata', checkAllLoaded);
+          el.addEventListener('error', checkAllLoaded);
+        }
+      }
+
+      // IFRAME
+      else if (el.tagName === 'IFRAME') {
+        el.addEventListener('load', checkAllLoaded);
+        el.addEventListener('error', checkAllLoaded);
+      }
+
     });
+
   });
+
 });
 
-
 // Header
-
 document.addEventListener("DOMContentLoaded", function () {
     const menu = document.querySelector(".header");
 
     let lastScrollY = window.scrollY;
-    let lastTime = Date.now();
+    let lastTime = performance.now();
     let scrollTimer;
 
-    const hideDelay = 2000;       // скрыть через 2 сек
-    const speedThreshold = 3.0;   // чувствительность скорости (подбирать)
+    const hideDelay = 1000;
+    const speedThreshold = 2.5; // чувствительность (px/ms)
 
     function showMenu() {
         menu.classList.remove("hidden");
@@ -57,15 +83,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", function () {
         const currentScrollY = window.scrollY;
-        const currentTime = Date.now();
+        const currentTime = performance.now();
 
-        const distance = Math.abs(currentScrollY - lastScrollY);
-        const time = currentTime - lastTime;
+        const distance = currentScrollY - lastScrollY;
+        const timeDiff = currentTime - lastTime;
 
-        const speed = distance / time; // px per ms
+        const speed = Math.abs(distance) / timeDiff; // px/ms
 
         // Вверху страницы — всегда видно
-        if (currentScrollY === 0) {
+        if (currentScrollY <= 0) {
             showMenu();
             clearTimeout(scrollTimer);
             lastScrollY = currentScrollY;
@@ -73,37 +99,60 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Появление только при быстром скролле
-        if (speed > speedThreshold) {
+        // Скролл вниз — сразу скрываем
+        if (distance > 0) {
+            hideMenu();
+        }
+
+        // Скролл вверх — только если быстро
+        if (distance < 0 && speed > speedThreshold) {
             showMenu();
         }
 
         clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(hideMenu, hideDelay);
+        scrollTimer = setTimeout(() => {
+            if (window.scrollY > 0) {
+                hideMenu();
+            }
+        }, hideDelay);
 
         lastScrollY = currentScrollY;
         lastTime = currentTime;
+    });
 
-        // Анимация перехода страниц
+    // Появление при наведении к верхнему краю
+    document.addEventListener("mousemove", function (e) {
+        if (e.clientY <= 15) {
+            showMenu();
+        }
+    });
 
-        const links = document.querySelectorAll('a.link');
-        const overlay = document.querySelector('.overlay');
-
-        links.forEach(link => {
-            link.addEventListener('click', e => {
-            e.preventDefault();
-            const href = link.getAttribute('href');
-
-            overlay.classList.add('active'); // запускаем анимацию
-
-            setTimeout(() => {
-                window.location.href = href; // переход после анимации
-            }, 500); // время совпадает с CSS transition
-            });
-        });
+    // Для мобильных
+    document.addEventListener("touchstart", function (e) {
+        if (e.touches[0].clientY <= 15) {
+            showMenu();
+        }
     });
 });
 
+// Анимация при скролле
+document.addEventListener('DOMContentLoaded', () => {
+  const elements = document.querySelectorAll('.scroll-animate');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0,                // срабатывает сразу
+    rootMargin: "0px 0px -0.5% 0px" // запуск раньше, за 20% до низа
+  });
+
+  elements.forEach(el => observer.observe(el));
+});
 
 
 // Установка cookie с возможностью указания срока

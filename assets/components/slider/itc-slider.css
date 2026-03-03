@@ -155,6 +155,14 @@ font-size: 14px;
 line-height: 28px;
 color: #FFFFFF;
   letter-spacing: 0.02rem;
+  transition: 0.2s ease;
+}
+
+.itc-slider-tag:hover {
+  background-color: var(--logo-tags-color);
+  color: #fff;
+  border-color: transparent;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 480px) {
