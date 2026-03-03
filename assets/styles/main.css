@@ -270,7 +270,6 @@ ul li, ol li {
   .menu-links li:nth-of-type(3):hover ~ .underbar{
     right: 137px;
     width: 89px;
-    height: 1px;
     background: var(--link-menu-color);
   }
   .menu-links li:nth-of-type(4):hover ~ .underbar{
