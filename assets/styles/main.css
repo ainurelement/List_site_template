@@ -771,7 +771,7 @@ body#cookie, body#cookie .header {
 .p-gallery-row-2 {
     margin-bottom: 25px;
 }
-.p-gallery-item  img {
+.p-gallery-item  img, .p-gallery-item  video{
     width: 100%;
 }
 .p-gallery-row-2 {
@@ -1035,6 +1035,10 @@ body#cookie, body#cookie .header {
   
     .footer-col-2 {
         flex-grow: 1;
+    }
+
+    .br-none {
+        display: none;
     }
 
   /* Slider */
