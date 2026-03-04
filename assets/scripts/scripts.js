@@ -11,7 +11,18 @@ document.addEventListener("DOMContentLoaded", function () {
     let scrollTimer;
 
     const hideDelay = 1000;
-    const speedThreshold = 2.5; // чувствительность (px/ms)
+    const speedThreshold = 1.5; // чувствительность (px/ms)
+    const offset = menu.offsetTop;
+
+
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > offset) {
+        menu.classList.add('is-fixed');
+        } else {
+        menu.classList.remove('is-fixed');
+        }
+    });
 
     function showMenu() {
         menu.classList.remove("hidden");
@@ -42,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Скролл вниз — сразу скрываем
-        if (distance > 0) {
+        if (distance > 5) {
             hideMenu();
         }
 

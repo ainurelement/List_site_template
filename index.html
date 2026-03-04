@@ -10,30 +10,31 @@
 </head>
 <body class="page-content">
     <!-- Header -->
-    <header class="header">
-
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <div class="img-logo"><img src="assets/img/logo.svg" alt=""></div>
-                    <h3 class="title-logo">
-                        Лист
-                    </h3>
-                    <h3 class="text-logo">Студия графического дизайна</h3>
-                </div>
-            
-                <!-- Хак для мобильного меню (checkbox) -->
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" class="menu-icon"></label>
+    <header>
+        <div class="header">
+            <div class="container">
+                <nav class="navbar">
+                    <div class="logo">
+                        <div class="img-logo"><img src="assets/img/logo.svg" alt=""></div>
+                        <h3 class="title-logo">
+                            Лист
+                        </h3>
+                        <h3 class="text-logo">Студия графического дизайна</h3>
+                    </div>
                 
-                <ul class="menu-links">
-                    <li><a href="projects.html">Проекты</a></li>
-                    <li><a href="about.html">О нас</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
-                    <li class="lang"><a href="#">EN</a></li>
-                    <div class="underbar"></div>
-                </ul>
-            </nav>
+                    <!-- Хак для мобильного меню (checkbox) -->
+                    <input type="checkbox" id="menu-toggle">
+                    <label for="menu-toggle" class="menu-icon"></label>
+                    
+                    <ul class="menu-links">
+                        <li><a href="projects.html">Проекты</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li class="lang"><a href="#">EN</a></li>
+                        <div class="underbar"></div>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -45,7 +46,7 @@
         <section>
             <div class="container">
                 <h1 class="main-title">
-                    Проектируем графические решения так, <br>
+                    Проектируем графические решения так, 
                     чтобы вас заметили, поняли и запомнили
                 </h1>
             </div>
@@ -123,7 +124,7 @@
                 <div class="gallery-row">
                     <div class="gallery-item scroll-animate loading="lazy"">
                         <a href="project_1.html">
-                            <img src="assets/img/gallery/Rectangle 1.png" alt="">
+                            <img src="assets/img/gallery/ar-broch-gif-1332x888.gif" alt="">
                         </a>
                         <h3 class="gallery-item-title">
                             Настольная игра «Обрисуйте ситуацию»
@@ -150,7 +151,11 @@
                     </div>
                     <div class="gallery-item scroll-animate" loading="lazy">
                         <a href="#">
-                            <img src="assets/img/gallery/Rectangle 4.png" alt="">
+                            <video autoplay loop muted playsinline>
+                                <source
+                                    src="assets/img/gallery/ar-broch-gif-1332x888.mp4"
+                                    type="video/mp4" />
+                                </video>
                         </a>
                         <h3 class="gallery-item-title">
                             Кофейный набор «Чем бодрее, тем добрее»
