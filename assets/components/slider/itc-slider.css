@@ -44,10 +44,12 @@
   height: 50px;
   color: #fff;
   text-align: center;
-  background: rgb(0 0 0 / 20%);
+  background: none;
   border: none;
   transform: translateY(-50%);
   cursor: pointer;
+  opacity: 0.5;
+  transition: 0.2s ease;
 }
 
 .itc-slider-btn-hide {
@@ -66,25 +68,23 @@
 .itc-slider-btn:focus {
   color: #fff;
   text-decoration: none;
-  background: rgb(0 0 0 / 30%);
   outline: 0;
+  opacity: 1;
 }
 
 .itc-slider-btn::before {
   content: "";
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 43px;
   background: transparent no-repeat center center;
   background-size: 100% 100%;
-}
-
-.itc-slider-btn-prev::before {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background-image: url(/assets/components/slider/dev/arrow.svg);
 }
 
 .itc-slider-btn-next::before {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+  transform: scaleX(-1);
 }
 
 /* индикаторы */
@@ -112,6 +112,12 @@
   background-clip: padding-box;
   border: 1px solid #fff;
   cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.itc-slider-indicator:hover, 
+.itc-slider-indicator:focus {
+  background-color: rgb(255 255 255 / 50%);
 }
 
 .itc-slider-indicator-active {
