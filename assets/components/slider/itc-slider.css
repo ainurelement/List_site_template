@@ -126,9 +126,10 @@
 
 .itc-slider-text {
   position: absolute;
-    left: 41px;
-    bottom: 24px;
+  left: 41px;
+  bottom: 24px;
   color: #fff;
+  z-index: 10;
 }
 
 .itc-slider-text h3 {

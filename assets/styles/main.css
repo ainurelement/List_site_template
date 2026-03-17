@@ -105,9 +105,8 @@ h3 {
     font-weight: 400;
     font-size: 20px;
     line-height: 28px;
-    font-feature-settings: 'cpsp' on;
     color: var(--text-color);
-    letter-spacing: 0.06rem;
+    letter-spacing: 0;
     margin-bottom: 13px;
     margin-top: 0;
 }
@@ -356,7 +355,7 @@ header {
 
 h1.main-title {
     margin-top: 10px;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0;
     font-family: 'Merriweather', serif;
     font-style: normal;
     font-weight: 400;
@@ -367,7 +366,7 @@ h1.main-title {
 
 .page-title {
     margin: 0 0 0 21px;
-    letter-spacing: 0.08rem;
+    letter-spacing: 0;
     font-family: 'Merriweather', serif;
     font-style: normal;
     font-weight: 400;
@@ -399,6 +398,10 @@ h1.main-title {
 
 .footer .footer-col-2 p {
     white-space: nowrap;
+}
+.footer .footer-col-2 p a {
+    font-size: 20px;
+    color: var(--text-color);
 }
 
 .footer-flex, .footer-flex-2 {
@@ -432,7 +435,7 @@ h1.main-title {
 .slider-main .itc-slider-item {
   flex: 0 0 100%;
 }
-.slider-main .itc-slider-item img {
+.slider-main .itc-slider-item img, .slider-main .itc-slider-item video {
   width: 100%;
 }
 
@@ -469,7 +472,7 @@ h1.main-title {
     margin: 0;
     padding: 0;
 }
-.gallery-item img:hover, .gallery-item video:hover {
+.gallery-item img:hover {
     transform: scale(1.04);
 
 }
@@ -584,7 +587,7 @@ body#about, body#about .header {
 }
 
 .team h3 {
-    letter-spacing: 0.02rem;
+    letter-spacing: 0;
     margin-top: 15px;
     margin-bottom: 2px;
 }
@@ -619,7 +622,7 @@ body#cookie, body#cookie .header {
 }
 
 .cookie-list h2 {
-    letter-spacing: 0.06rem;
+    letter-spacing: 0;
     margin-bottom: 20px;
 }
 .cookie-list li {
@@ -749,6 +752,9 @@ body#cookie, body#cookie .header {
     margin-top: 10px;
 }
 
+.hero-img {
+    margin-bottom: 71px;
+}
 .hero-img img {
     margin-top: 60px;
     width: 100%;
@@ -756,6 +762,7 @@ body#cookie, body#cookie .header {
 
 .p-description {
     margin-top: 56px;
+    margin-bottom: 71px;
     max-width: 848px;
     margin-left: 34%;
 }
@@ -764,9 +771,6 @@ body#cookie, body#cookie .header {
     letter-spacing: 0;
 }
 
-.p-gallery {
-    margin-top: 71px;
-}
 .p-gallery-row-1,
 .p-gallery-row-2 {
     margin-bottom: 25px;
@@ -790,13 +794,25 @@ body#cookie, body#cookie .header {
     width:calc( ( 100% - 52px ) / 3 );
 }
 
+.p-details h4:nth-child(even) {
+    font-family: 'Commissioner', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    color: var(--text-color);
+    letter-spacing: 0rem;
+    margin-bottom: 7px;
+    margin-top: 0;
+}
+
 .p-detail-1 > *,
 .p-detail-2 > *,
 .p-detail-3 > * {
     display: flex;
     gap: 10px;
     margin-bottom: 3px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 
 .p-detail-3 > * {
@@ -808,11 +824,15 @@ body#cookie, body#cookie .header {
 .p-detail-3 h4 {
     margin-bottom: 0;
 }
-.p-detail-3 h5 {
+.p-detail-3 h4:nth-child(even) {
     margin-bottom: 0;
     white-space: wrap;
 }
 
+.project video {
+    width:100%;
+    object-fit: contain;    
+}
 
 /* Services */
 
@@ -1083,16 +1103,18 @@ body#cookie, body#cookie .header {
     width:100%;
     }
 
-    .p-gallery {
-        margin-top: 51px;
+    .hero-img {
+        margin-bottom: 51px;
     }
     .p-description {
         margin-top: 46px;
+        margin-bottom: 51px;
     }
 
     .p-details {
         flex-wrap: wrap;
         gap: 40px;
+        row-gap: 14px;
     }
     .p-details > * {
     width:calc( ( 100% - 40px ) / 2 );
@@ -1330,6 +1352,8 @@ body#cookie, body#cookie .header {
     .p-details {
         flex-direction: column;
         gap: 40px;
+        row-gap: 14px;
+        padding-left: 20px;
     }
     .p-details > * {
         width:100%;
@@ -1342,7 +1366,7 @@ body#cookie, body#cookie .header {
         margin-right: 0;
     }
     .tag-project {
-        font-size: 10px;
+        font-size: 12px;
     }
 }
 
